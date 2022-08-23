@@ -1,0 +1,21 @@
+.wrapper {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.title {
+  color: #ef5b0c;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1000px) {
+  .title {
+    margin-bottom: 30px;
+  }
+}

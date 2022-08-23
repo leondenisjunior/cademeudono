@@ -1,0 +1,41 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 60px;
+    width: 100%;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listMobile {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 80px 0 0 0;
+  list-style-type: none;
+}
+
+.itemList {
+
+}
+
+.hamburger {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+    .list {
+      display: none;
+    }
+}

@@ -1,0 +1,41 @@
+.title {
+  color: #ef5b0c;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  margin-bottom: 20px;
+}
+
+.containerSlider {
+  margin-top: 20px;
+}
+
+.wrapperSlide {
+  width: 100%;
+  text-align: center;
+}
+
+.eachSlideEffect > div {
+  background-size: cover;
+  height: 400px;
+}
+
+@media screen and (min-width: 768px) {
+  .containerSlider {
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrapperSlide {
+    width: 600px;
+    text-align: center;
+  }
+
+  .eachSlideEffect > div {
+    background-size: cover;
+    height: 400px;
+  }
+}

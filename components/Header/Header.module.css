@@ -1,0 +1,83 @@
+.header {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 16%);
+  width: 100%;
+}
+
+.wrepperTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.wrepperTitle h1 {
+  padding-left: 20px;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+}
+
+.container {
+  height: 60px;
+}
+
+.nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.linkSelected {
+  color: #ef5b0c;
+}
+
+.hamburger {
+  display: block;
+}
+
+.list {
+  display: none;
+}
+
+.list li {
+  padding-right: 10px;
+}
+
+.listMobile {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 120px 0 0 0;
+  list-style-type: none;
+  display: block;
+}
+
+.listMobile li {
+  text-align: center;
+  background-color: #ffff;
+  padding: 10px;
+}
+
+@media screen and (min-width: 1000px) {
+  .list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}

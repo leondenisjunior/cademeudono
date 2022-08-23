@@ -1,0 +1,26 @@
+.wrapper {
+}
+
+.wrapper li {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrapper ul {
+  padding: 0;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.wrapper li p {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.wrapper li span {
+  font-size: 16px;
+  font-weight: 100;
+}
