@@ -1,0 +1,14 @@
+.wrapperButton {
+  margin: 20px 0 20px 0;
+  text-align: end;
+}
+
+.container {
+  margin-top: 60px;
+  background-color: #ffff;
+  border-radius: 8px;
+}
+
+.wrapper {
+  padding: 20px;
+}

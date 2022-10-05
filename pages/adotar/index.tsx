@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import Home from '../../partials/Home';
+import React, { FC } from 'react'
+import Adopt from '../../partials/adopt'
 
-const App: FC = () => <Home/>
+const App: FC = () => <Adopt />
 
-export default App;
+export default App

@@ -33,9 +33,4 @@
     width: 600px;
     text-align: center;
   }
-
-  .eachSlideEffect > div {
-    background-size: cover;
-    height: 400px;
-  }
 }

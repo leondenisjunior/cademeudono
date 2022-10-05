@@ -1,11 +1,13 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useContext, useEffect, useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
 import styles from './Header.module.css'
 import Container from '../Container'
 import classNames from 'classnames'
 import { Button } from '@mui/material'
+import Link from 'next/link'
+import { UserContext } from '../../context'
 
-const routes = [
+const INITIAL_ROUTES = [
   {
     route: '/',
     name: 'Página principal',
@@ -15,11 +17,11 @@ const routes = [
     name: 'Adotar',
   },
   {
-    route: '/encontrar',
-    name: 'Encontrar',
+    route: '/desaparecidos',
+    name: 'Desaparecidos',
   },
   {
-    route: '/campanha',
+    route: '/campanhas',
     name: 'Campanhas',
   },
   {
@@ -31,12 +33,22 @@ const routes = [
 const Header: FC = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false)
   const [pathname, setPathname] = useState('')
+  const [routes, setRoutes] = useState(INITIAL_ROUTES)
+  const { user, logout } = useContext(UserContext)
 
   const path = typeof window != 'undefined' ? window.location.pathname : ''
 
   useEffect(() => {
     setPathname(path)
   }, [path])
+
+  // useEffect(() => {
+  //   console.log('passou 2')
+
+  //   if (!user.isLogged) {
+  //     setRoutes((el) => el.filter((route) => route.name !== 'Meus posts'))
+  //   }
+  // }, [user.isLogged])
 
   const handleMenu = () => {
     setIsNavExpanded(!isNavExpanded)
@@ -64,12 +76,26 @@ const Header: FC = () => {
                 </li>
               )
             })}
-            <li>
-              <Button variant="contained">Criar conta</Button>
-            </li>
-            <li>
-              <Button variant="outlined">Fazer login</Button>
-            </li>
+            {user.isLogged ? (
+              <li>
+                <Button onClick={() => logout()} variant="outlined">
+                  Sair
+                </Button>
+              </li>
+            ) : (
+              <>
+                <li>
+                  <Link href="/criarconta">
+                    <Button variant="contained">Criar conta</Button>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/login">
+                    <Button variant="outlined">Fazer login</Button>
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
           <MenuIcon className={styles.hamburger} onClick={handleMenu} />
         </nav>

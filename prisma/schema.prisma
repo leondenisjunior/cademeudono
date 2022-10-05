@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model user {
+  id          Int      @default(autoincrement()) @id
+  name        String?
+  email       String?
+  password    String?
+  adopt       adopt[]
+}
+
+model pet {
+  id          Int      @default(autoincrement()) @id
+  name        String?
+  age         Int?
+  images      Json
+  specie      String?
+  description String?
+  adopt       adopt[]
+  createdAt  DateTime   @default(now())
+  updateAt  DateTime   @default(now())
+}
+
+model adopt {
+  id          Int      @default(autoincrement()) @id
+  user        user    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+  pet         pet    @relation(fields: [petId], references: [id], onDelete: Cascade)
+  petId       Int
+  title       String?
+  description         String?
+  address     address[]
+  createdAt   DateTime   @default(now())
+  updateAt    DateTime   @default(now())
+}
+
+model address {
+  id          Int      @default(autoincrement()) @id
+  adopt       adopt    @relation(fields: [adoptId], references: [id], onDelete: Cascade)
+  adoptId     Int
+  street      String
+  district    String
+  number      Int
+  city        String
+  state       String
+  createdAt   DateTime   @default(now())
+  updateAt    DateTime   @default(now())
+}

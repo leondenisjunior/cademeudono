@@ -1,16 +1,26 @@
 import { Button, Paper } from '@mui/material'
 import Link from 'next/link'
 import styles from './Card.module.css'
-
+import 'react-slideshow-image/dist/styles.css'
+import { Slide } from 'react-slideshow-image'
 export interface CardProps {
   id: number
   author: {
     name: string
     city: string
   }
-  image: string
+  image: string[]
   description: string
   publicationDate: string
+}
+
+const zoomOutProperties = {
+  duration: 5000,
+  transitionDuration: 500,
+  infinite: true,
+  indicators: true,
+  scale: 0.4,
+  arrows: true,
 }
 
 function Card({
@@ -28,7 +38,16 @@ function Card({
             <h2 className={styles.title}>{name}</h2>
             <span className={styles.subtitle}>{city}</span>
           </div>
-          <img className={styles.img} src={image} />
+          <Slide {...zoomOutProperties}>
+            {image.map((item) => (
+              <div key={item} className={styles.eachSlideEffect}>
+                <div
+                  //className={styles.img}
+                  style={{ backgroundImage: `url(${item})` }}
+                />
+              </div>
+            ))}
+          </Slide>
           <p className={styles.description}>{description}</p>
         </div>
         <div className={styles.wrapperFlex}>
